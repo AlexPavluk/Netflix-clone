@@ -39,8 +39,8 @@ const Search: React.FC<InfoSearchModalProps> = ({ data, visible, onClose }) => {
 
   return (
     <>
-      <div className=' bg-black absolute sm:right-[200px] lg:right-[240px] top-2 z-50 rounded-md'>
-        <div className="flex items-center ml-[35px] justify-center">
+      <div className='ralative sm:right-[200px] lg:right-[240px] top-2'>
+        <div className="flex items-center justify-center bg-black z-50 absolute right-4 top-2 rounded-md ">
           <div className="w-full">
             <Input
               label="Search film"
@@ -51,6 +51,7 @@ const Search: React.FC<InfoSearchModalProps> = ({ data, visible, onClose }) => {
           </div>
           <div
             className="
+            bg-black
            cursor-pointer           
            w-10
            h-10
