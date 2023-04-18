@@ -30,7 +30,6 @@ const MovieCard: React.FC<MovieCardsProps> = ({
            shadow-xl
            rounded-md
            group-hover:opacity-90
-           lg:group-hover:opacity-90
            sm:group-hover:opacity-0
            delay-300
            w-auto
@@ -46,15 +45,16 @@ const MovieCard: React.FC<MovieCardsProps> = ({
         transition
         duration-200
         z-10
-        
+        lg:invisible
         visible
-        sm:visible
         delay-300
         w-full
         scale-0
         group-hover:scale-100        
-        group-hover:translate-y-[6vw]
-        group-hover:translate-x-[6vw]
+        lg:group-hover:translate-y-[6vw]
+        lg:group-hover:translate-x-[2vw]
+        group-hover:translate-y-0
+        group-hover:translate-x-0
         group-hover:opacity-100
         ">
                 <img

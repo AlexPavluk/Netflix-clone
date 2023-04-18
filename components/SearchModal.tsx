@@ -39,16 +39,16 @@ const Search: React.FC<InfoSearchModalProps> = ({ data, visible, onClose }) => {
 
   return (
     <>
-      <div className='ralative sm:right-[200px] lg:right-[240px] top-2'>
-        <div className="flex items-center justify-center bg-black z-50 absolute right-4 top-2 rounded-md ">
-          <div className="w-full">
+      <div className='ralative sm:right-[200px] lg:right-[240px] top-6'>
+        <div className="flex items-center justify-center bg-black z-50 absolute right-4 top-2 lg:top-4 lg:right-[240px] rounded-md ">
+
             <Input
               label="Search film"
               onChange={(ev: any) => setSerchInputValue(ev.target.value)}
               id='search'
               type="text"
               value={serchInputValue} />
-          </div>
+
           <div
             className="
             bg-black
