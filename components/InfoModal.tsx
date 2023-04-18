@@ -106,6 +106,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                         </div>
 
                         <div className="
+                        lg:w-[200px]
                         w-10
                         absolute
                         bottom-[10%]
