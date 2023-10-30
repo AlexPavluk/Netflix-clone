@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai';
 
-import { isEmpty } from 'lodash';
-import Input from '@/components/Input'
 import SearchItems from './SearchItems';
+import SearchInput from './SearchInput';
 
 interface InfoSearchModalProps {
   visible?: boolean;
@@ -12,71 +11,52 @@ interface InfoSearchModalProps {
 }
 
 
-const Search: React.FC<InfoSearchModalProps> = ({ data, visible, onClose }) => {
-  const [isVisible, setIsVible] = useState<boolean>(!!visible);
+const SearchModal: React.FC<InfoSearchModalProps> = ({ data, onClose }) => {
   const [serchInputValue, setSerchInputValue] = useState('')
-  const fileredArray = data.filter((movie:any) => movie.title === serchInputValue)
-
-
-  useEffect(() => {
-    setIsVible(!!visible)
-  }, [visible]);
 
   const handleClose = useCallback(() => {
-    setIsVible(false)
     setTimeout(() => {
       onClose();
     }, 300)
   }, [onClose])
 
-  if (!visible) {
-    return null;
-  }
-
-  if (isEmpty(data)) {
-    null
-  }
-
   return (
     <>
-      <div className='ralative sm:right-[200px] lg:right-[240px] top-6'>
-        <div className="flex items-center justify-center bg-black z-50 absolute right-4 top-2 lg:top-4 lg:right-[240px] rounded-md ">
+        <div className="sm:absolute left-0 top-0 sm:w-full z-40  sm:bg-black sm:h-[1000px] ml-auto gap-3 lg:gap-7">
+          <div className="z-150 flex items-center sm:justify-center sm:mt-3">
 
-            <Input
-              label="Search film"
+            <SearchInput
               onChange={(ev: any) => setSerchInputValue(ev.target.value)}
+              label='Write film name'
               id='search'
               type="text"
               value={serchInputValue} />
-
+          
           <div
             className="
-            bg-black
+         bg-black
            cursor-pointer           
            w-10
            h-10
-           top-9
-           right-3
-           lg:h-[52px]
-           lg:w-[50px]
-           rounded-lg
+           lg:h-[40px]
+           lg:w-[40px]
            bg-opacity-70
            flex
+           z-30
            items-center
            justify-center
            transition
            "
-            onClick={() => console.log('i work')}
           >
-            <AiOutlineClose onClick={handleClose} className='text-white' size={20} />
+            <AiOutlineClose onClick={handleClose} className='text-white' size={15} />
+          </div>
+          </div>
+          <div>
+            <SearchItems value={serchInputValue} data={data} />
           </div>
         </div>
-      </div>
-      <div>
-          <SearchItems value={serchInputValue} data={data}/>
-      </div>
     </>
   )
 }
 
-export default Search
+export default SearchModal

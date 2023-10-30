@@ -45,13 +45,12 @@ const MovieCard: React.FC<MovieCardsProps> = ({
         transition
         duration-200
         z-10
-        lg:invisible
         visible
         delay-300
         w-full
         scale-0
         group-hover:scale-100        
-        lg:group-hover:translate-y-[6vw]
+        lg:group-hover:translate-y-[2vw]
         lg:group-hover:translate-x-[2vw]
         group-hover:translate-y-0
         group-hover:translate-x-0
